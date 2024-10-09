@@ -1,0 +1,21 @@
+server {
+    # listen http
+    listen 80;
+    # listen http, ipv6
+    listen [::]:80;
+    # listen https
+    listen 443;
+    # listen https, ipv6
+    listen [::]:443;
+
+
+    # REPLACE THE EXAMPLE DOMAIN BELOW
+    server_name subdomain.example.com;
+
+    # return 204 by default
+    return 204;
+
+    # intercept errors and redirect to 204
+    proxy_intercept_errors on;
+    error_page 500 502 503 504 =204;
+}
